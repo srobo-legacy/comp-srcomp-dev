@@ -1,0 +1,9 @@
+[submodule "http"]
+	path = http
+	url = git://github.com/PeterJCLaw/sr-comp-http.git
+[submodule "screens"]
+	path = screens
+	url = git://github.com/tomleese/sr-comp-screens
+[submodule "compstate"]
+	path = compstate
+	url = git://srobo.org/comp/sr2014-comp.git

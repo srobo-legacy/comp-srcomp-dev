@@ -6,4 +6,6 @@
 	url = git://github.com/tomleese/sr-comp-screens
 [submodule "compstate"]
 	path = compstate
-	url = git://srobo.org/comp/sr2014-comp.git
+	url = https://bitbucket.org/rspanton/sr-dummy-comp
+# TODO: use this instead
+#	url = git://srobo.org/comp/sr2014-comp.git

@@ -12,6 +12,10 @@ from app import app
 def screen():
     return open(PATH + '/screens/screen.html').read()
 
+@app.route("/shepherding")
+def shepherding():
+    return open(PATH + '/shepherding/index.html').read()
+
 if __name__ == '__main__':
     from argparse import ArgumentParser
 

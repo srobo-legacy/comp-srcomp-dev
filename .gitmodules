@@ -4,6 +4,9 @@
 [submodule "screens"]
 	path = screens
 	url = git://github.com/tomleese/sr-comp-screens
+[submodule "shepherding"]
+	path = shepherding
+	url = git://github.com/tomleese/sr-comp-shepherding
 [submodule "compstate"]
 	path = compstate
 	url = git://github.com/PeterJCLaw/sr-dummy-comp.git

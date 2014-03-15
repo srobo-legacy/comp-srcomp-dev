@@ -10,7 +10,7 @@ from app import app
 
 @app.route("/screen")
 def screen():
-    return open(PATH + '/screens/screen.html').read()
+    return open(PATH + '/screens/arena.html').read()
 
 @app.route("/shepherding")
 def shepherding():

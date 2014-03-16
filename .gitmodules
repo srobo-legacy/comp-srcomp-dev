@@ -1,6 +1,6 @@
 [submodule "http"]
 	path = http
-	url = git://github.com/PeterJCLaw/sr-comp-http.git
+	url = git://srobo.org/comp/srcomp-http
 [submodule "screens"]
 	path = screens
 	url = git://srobo.org/comp/srcomp-screens

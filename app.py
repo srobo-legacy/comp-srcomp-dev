@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import cgi
+from flask import url_for
 import os
 import sys
 
@@ -10,11 +12,39 @@ from app import app
 
 @app.route("/screen")
 def screen():
+    """An arena screen (dev only)"""
     return open(PATH + '/screens/arena.html').read()
 
 @app.route("/shepherding")
 def shepherding():
+    """A shepherding view (dev only)"""
     return open(PATH + '/shepherding/index.html').read()
+
+@app.route("/")
+def site_map():
+    """Print available functions (dev only)"""
+    func_list = {}
+    for rule in app.url_map.iter_rules():
+        if rule.endpoint != 'static':
+            print rule, rule.rule
+            func_list[rule.rule] = app.view_functions[rule.endpoint].__doc__
+
+    page = """<html><head><title>Comp API</title></head><body>
+    <h2>Comp API</h2>
+    <ul>"""
+    for endpoint, description in func_list.items():
+        endpoint = str(endpoint)
+        escaped = cgi.escape(endpoint)
+        if escaped == endpoint:
+            # link it
+            item = '<a href="{0}">{0}</a>'.format(endpoint)
+        else:
+            item = escaped
+        if description is not None:
+            item += ": " + description
+        page += "<li>{0}</li>".format(item)
+    page += "</ul></body></html>"
+    return page
 
 if __name__ == '__main__':
     from argparse import ArgumentParser

@@ -37,7 +37,7 @@ def site_map():
         escaped = cgi.escape(endpoint)
         if escaped == endpoint:
             # link it
-            item = '<a href="{0}">{0}</a>'.format(endpoint)
+            item = '<a href=".{0}">{0}</a>'.format(endpoint)
         else:
             item = escaped
         if description is not None:

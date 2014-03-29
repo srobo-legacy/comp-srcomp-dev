@@ -9,6 +9,11 @@ No real code should be in here.
 See https://www.studentrobotics.org/trac/wiki/Competition/Software for a
 rough guide on the overall aims.
 
+**Warning:** This repo has several (at least four) layers of submodules.
+Be sure you've got all them all checked out -- you'll get import errors
+from most things, but there are also some symlinks which cross module
+boundaries which will likely give other errors.
+
 ## Run with
 `./app.py`
 

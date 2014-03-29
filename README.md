@@ -20,6 +20,10 @@ boundaries which will likely give other errors.
 Serves the competition API plus some related pages (so they don't need
 to worry about having XSS issues) at http://localhost:5112.
 
+If you want to develop the srweb competition mode stuff, you'll need to
+arrange for http://localhost/comp-api to be routed to the above, which
+whatever you're using to serve srweb will probably be able to do.
+
 ## Test with
 `./run-all-tests`
 

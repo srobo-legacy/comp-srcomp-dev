@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import cgi
-from flask import url_for
+from flask import url_for, request
 import os
 import sys
 
@@ -10,15 +10,24 @@ sys.path.insert(0, PATH + "/http/")
 
 from app import app
 
+def tweak_api_root(page):
+    page = page.replace("var API_ROOT = '/comp-api';",
+                        "var API_ROOT = '';")
+    return page
+
 @app.route("/screen")
 def screen():
     """An arena screen (dev only)"""
-    return open(PATH + '/screens/arena.html').read()
+    page = open(PATH + '/screens/arena.html').read()
+    page = tweak_api_root(page)
+    return page
 
 @app.route("/shepherding")
 def shepherding():
     """A shepherding view (dev only)"""
-    return open(PATH + '/shepherding/index.html').read()
+    page = open(PATH + '/shepherding/index.html').read()
+    page = tweak_api_root(page)
+    return page
 
 @app.route("/")
 def site_map():

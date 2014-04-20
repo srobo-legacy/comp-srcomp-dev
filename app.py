@@ -35,7 +35,6 @@ def site_map():
     func_list = {}
     for rule in app.url_map.iter_rules():
         if rule.endpoint != 'static':
-            print rule, rule.rule
             func_list[rule.rule] = app.view_functions[rule.endpoint].__doc__
 
     page = """<html><head><title>Comp API</title></head><body>

@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 
 import cgi
-from flask import url_for, request
+from flask import url_for, request, jsonify
 import os
 import sys
+from time import time
 
 PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, PATH + "/http/")
@@ -14,6 +15,15 @@ def tweak_api_root(page):
     page = page.replace("var API_ROOT = '/comp-api';",
                         "var API_ROOT = '';")
     return page
+
+#@app.route("/state")
+def state_label():
+    return jsonify(state=time())
+
+# Directly setting it seems to be the only way to override it
+for rule in app.url_map.iter_rules():
+    if rule.rule == "/state":
+        app.view_functions[rule.endpoint] = state_label
 
 @app.route("/screen")
 def screen():

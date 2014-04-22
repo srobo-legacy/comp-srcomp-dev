@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import cgi
-from flask import url_for, request, jsonify
+from flask import url_for, request, redirect, jsonify, send_from_directory
 import os
 import sys
 from time import time
@@ -28,9 +28,11 @@ for rule in app.url_map.iter_rules():
 @app.route("/screen")
 def screen():
     """An arena screen (dev only)"""
-    page = open(PATH + '/screens/arena.html').read()
-    page = tweak_api_root(page)
-    return page
+    return redirect("/screens/arena.html")
+
+@app.route("/screens/<path:filename>")
+def screens(filename):
+    return send_from_directory("{}/screens".format(PATH), filename)
 
 @app.route("/shepherding")
 def shepherding():

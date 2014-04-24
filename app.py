@@ -26,7 +26,7 @@ for rule in app.url_map.iter_rules():
         app.view_functions[rule.endpoint] = state_label
 
 @app.route("/screens")
-def screens():
+def screen():
     """An arena screen (dev only)"""
     return redirect("/screens/arena.html")
 

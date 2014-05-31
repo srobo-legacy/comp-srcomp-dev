@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import cgi
-from flask import url_for, request, redirect, jsonify, send_from_directory
+from flask import redirect, jsonify, send_from_directory
 import os
 import sys
 from time import time

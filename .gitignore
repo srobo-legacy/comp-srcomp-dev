@@ -34,3 +34,11 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+dummy-comp
+ranker
+srcomp-http
+srcomp-screens
+srcomp-stream
+srcomp
+venv
+srcomp-scorer

@@ -51,6 +51,19 @@ if [ -f /etc/lsb-release ]; then
     fi
 fi
 
+# Check that bower is installed
+bower --version
+if [ $? -ne 0 ]; then
+    npm --version
+    if [ $? -ne 0 ]; then
+        echo "npm not installed. Install it through your system package manager."
+        exit 1
+    fi
+    echo "Bower not installed. Please install it:"
+    echo "$ npm install -g bower"
+    exit 1
+fi
+
 set -e
 if [ -n "$DODGY_UBUNTU" ]; then
     echo "Using /usr/bin/virtualenv due to Ubuntu 14.04's broken Python 3.4"

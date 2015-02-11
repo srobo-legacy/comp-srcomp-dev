@@ -94,7 +94,6 @@ cd srcomp-scorer
     python setup.py develop
 cd ..
 cd srcomp-screens
-    git checkout rewrite
     bower install
 cd ..
 cd srcomp-stream

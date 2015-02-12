@@ -28,16 +28,21 @@ scorer_app.config['COMPSTATE'] = args.compstate
 scorer_app.config['COMPSTATE_LOCAL'] = True
 
 if args.stream:
-    # Run streams thread
-    def run_streams():
-        # Hack, pending a better solution to determining whether
-        # cherrypy has actually started yet.
-        time.sleep(3)
-        subprocess.check_call(('node', 'main.js'),
-                              cwd='srcomp-stream')
-    thr = threading.Thread(name='streams', target=run_streams)
-    thr.daemon = True
-    thr.start()
+    def start_stream_thread():
+        murder_stream = threading.Event()
+        # Run streams thread
+        def run_streams():
+            # Hack, pending a better solution to determining whether
+            # cherrypy has actually started yet.
+            stream_process = subprocess.Popen(('node', 'main.js'),
+                                              cwd='srcomp-stream')
+            murder_stream.wait()
+            stream_process.terminate()
+            stream_process.wait()
+        cherrypy.engine.subscribe('stop', murder_stream.set)
+        thr = threading.Thread(name='streams', target=run_streams)
+        thr.start()
+    cherrypy.engine.subscribe('start', start_stream_thread)
 
 cherrypy.tree.graft(app, '/comp-api')
 if args.scorer:

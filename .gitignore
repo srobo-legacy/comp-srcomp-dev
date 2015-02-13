@@ -42,3 +42,4 @@ srcomp-stream
 srcomp
 venv
 srcomp-scorer
+srcomp-cli

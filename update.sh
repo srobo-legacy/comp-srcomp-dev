@@ -1,4 +1,4 @@
-for repo in dummy-comp ranker srcomp srcomp-http srcomp-scorer srcomp-screens srcomp-stream; do
+for repo in dummy-comp ranker srcomp srcomp-http srcomp-scorer srcomp-screens srcomp-stream srcomp-cli; do
     echo $repo
     echo ------------------
     cd $repo

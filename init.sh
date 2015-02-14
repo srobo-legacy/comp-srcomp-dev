@@ -80,8 +80,8 @@ clone_srobo comp/srcomp-http.git srcomp-http
 clone_srobo comp/srcomp-screens.git srcomp-screens
 clone_srobo comp/dummy-comp.git dummy-comp
 clone_srobo comp/srcomp-scorer.git srcomp-scorer
-clone_gh prophile/srcomp-cli.git srcomp-cli
-clone_gh prophile/srcomp-stream.git srcomp-stream
+clone_srobo comp/srcomp-cli.git srcomp-cli
+clone_srobo comp/srcomp-stream.git srcomp-stream
 cd ranker
     python setup.py develop
 cd ..

@@ -17,3 +17,4 @@ Sphinx==1.3b2
 docutils==0.12
 Pygments==2.0.2
 cherrypy==3.6.0
+requests==2.5.1

@@ -7,27 +7,43 @@ fi
 if [ -n "$GERRIT" ]; then
     echo "Detected GERRIT as $GERRIT"
     function clone_srobo {
-        git clone --recursive git://studentrobotics.org/$1 $2
-        cd $2
-        git config remote.origin.pushURL $GERRIT:$1
-        cd -
+        if [ -d "$2" ]; then
+            echo 'Skipped: already exists.'
+        else
+            git clone --recursive git://studentrobotics.org/$1 $2
+            cd $2
+            git config remote.origin.pushURL $GERRIT:$1
+            cd -
+        fi
     }
 else
     function clone_srobo {
-        git clone --recursive git://studentrobotics.org/$1 $2
-        cd $2
-        git config remote.origin.pushURL ssh://studentrobotics.org:29418/$1
-        cd -
+        if [ -d "$2" ]; then
+            echo 'Skipped: already exists.'
+        else
+            git clone --recursive git://studentrobotics.org/$1 $2
+            cd $2
+            git config remote.origin.pushURL ssh://studentrobotics.org:29418/$1
+            cd -
+        fi
     }
 fi
 if [ -n "$GITHUB" ]; then
     echo "Detected GITHUB as $GITHUB"
     function clone_gh {
-        git clone --recursive $GITHUB:$1 $2
+        if [ -d "$2" ]; then
+            echo 'Skipped: already exists.'
+        else
+            git clone --recursive $GITHUB:$1 $2
+        fi
     }
 else
     function clone_gh {
-        git clone --recursive https://github.com/$1 $2
+        if [ -d "$2" ]; then
+            echo 'Skipped: already exists.'
+        else
+            git clone --recursive https://github.com/$1 $2
+        fi
     }
 fi
 
@@ -109,4 +125,3 @@ echo "-- DONE SETUP --"
 echo "Usage: "
 echo "  (1) Activate the virtualenv: source venv/bin/activate"
 echo "  (2) Run everything with run.py"
-

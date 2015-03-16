@@ -4,7 +4,7 @@ SRcomp Development Script
 This repository contains a script - `init.sh` - which builds an srcomp
 development environment.
 
-Specifically, when, run it:
+Specifically, when, run (via `python run.py $COMPSTATE`) it:
 
  * creates a virtualenv and configures it with external dependencies,
  * clones and configures the following repositories:
@@ -18,3 +18,9 @@ Specifically, when, run it:
 
 It then emits instructions on how to use the virtualenv.
 
+The HTTP API is exposed via <http://localhost:5112/comp-api/>, while the
+screen pages are at:
+
+ * <http://localhost:5112/arena.html>
+ * <http://localhost:5112/outside.html>
+ * <http://localhost:5112/shepherding.html>

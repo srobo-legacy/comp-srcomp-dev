@@ -1,7 +1,7 @@
 SRcomp Development Script
 =========================
 
-This repository contains a script—`init.sh`—which builds an srcomp
+This repository contains a script - `init.sh` - which builds an srcomp
 development environment.
 
 Specifically, when, run it:

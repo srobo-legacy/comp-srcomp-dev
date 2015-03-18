@@ -99,19 +99,19 @@ clone_srobo comp/srcomp-scorer.git srcomp-scorer
 clone_srobo comp/srcomp-cli.git srcomp-cli
 clone_srobo comp/srcomp-stream.git srcomp-stream
 cd ranker
-    python setup.py develop
+    pip install -e .
 cd ..
 cd srcomp
-    python setup.py develop
+    pip install -e .
 cd ..
 cd srcomp-http
-    python setup.py develop
+    pip install -e .
 cd ..
 cd srcomp-scorer
-    python setup.py develop
+    pip install -e .
 cd ..
 cd srcomp-cli
-    python setup.py develop
+    pip install -e .
 cd ..
 cd srcomp-screens
     bower install

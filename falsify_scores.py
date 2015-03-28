@@ -45,6 +45,7 @@ def falsify(match):
                    'present': (0.7*random.random()) < SKILL_LEVELS[tla]}
                for n, tla in enumerate(match.teams)
                  if tla is not None}
+    unclaimed_flags = 5
     for flag in range(5):
         order = list(match.teams)
         random.shuffle(order)
@@ -53,10 +54,14 @@ def falsify(match):
                 continue
             if (random.random() * 1.3) < SKILL_LEVELS[team]:
                 teams[team]['flags'] += 1
+                unclaimed_flags -= 1
                 break
+    assert unclaimed_flags >= 0
     data = {'arena_id': match.arena,
             'match_number': match.num,
-            'teams': teams}
+            'teams': teams,
+            'other': {'unclaimed_flags': unclaimed_flags},
+           }
     with path.open('w') as f:
         yaml.dump(data, f, default_flow_style=False)
 

@@ -12,7 +12,6 @@ import threading
 import subprocess
 import time
 from sr.comp.http import app
-from sr.comp.scorer import app as scorer_app
 
 parser = argparse.ArgumentParser()
 parser.add_argument('compstate', help='path to compstate repo')
@@ -23,9 +22,6 @@ parser.add_argument('--no-stream', action='store_false',
 args = parser.parse_args()
 
 app.config['COMPSTATE'] = args.compstate
-
-scorer_app.config['COMPSTATE'] = args.compstate
-scorer_app.config['COMPSTATE_LOCAL'] = True
 
 if args.stream:
     def start_stream_thread():
@@ -46,6 +42,11 @@ if args.stream:
 
 cherrypy.tree.graft(app, '/comp-api')
 if args.scorer:
+    from sr.comp.scorer import app as scorer_app
+
+    scorer_app.config['COMPSTATE'] = args.compstate
+    scorer_app.config['COMPSTATE_LOCAL'] = True
+
     cherrypy.tree.graft(scorer_app, '/scorer')
 
 config={

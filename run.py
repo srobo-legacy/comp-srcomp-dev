@@ -52,7 +52,8 @@ if args.scorer:
 config={
     '/': {
         'tools.staticdir.on': True,
-        'tools.staticdir.dir': os.path.realpath('srcomp-screens')
+        'tools.staticdir.dir': os.path.realpath('srcomp-screens'),
+        'tools.caching.on': False,
     },
     'global': {
         'server.socket_host': '::',

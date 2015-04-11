@@ -23,6 +23,8 @@ args = parser.parse_args()
 
 app.config['COMPSTATE'] = args.compstate
 
+mydir = os.path.dirname(os.path.realpath(__file__))
+
 if args.stream:
     def start_stream_thread():
         murder_stream = threading.Event()
@@ -30,8 +32,9 @@ if args.stream:
         def run_streams():
             # Hack, pending a better solution to determining whether
             # cherrypy has actually started yet.
+            stream_dir = os.path.join(mydir, 'srcomp-stream')
             stream_process = subprocess.Popen(('node', 'main.js'),
-                                              cwd='srcomp-stream')
+                                              cwd=stream_dir)
             murder_stream.wait()
             stream_process.terminate()
             stream_process.wait()
@@ -49,10 +52,11 @@ if args.scorer:
 
     cherrypy.tree.graft(scorer_app, '/scorer')
 
+screens_dir = os.path.realpath(os.path.join(mydir, 'srcomp-screens'))
 config={
     '/': {
         'tools.staticdir.on': True,
-        'tools.staticdir.dir': os.path.realpath('srcomp-screens'),
+        'tools.staticdir.dir': screens_dir,
         'tools.caching.on': False,
     },
     'global': {

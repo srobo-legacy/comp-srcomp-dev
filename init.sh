@@ -47,7 +47,7 @@ else
     }
 fi
 
-for POSSIBLE_PYTHON in python3 python;
+for POSSIBLE_PYTHON in python2 python python3;
 do
     PYTHON=$(which $POSSIBLE_PYTHON)
     $POSSIBLE_PYTHONS --version 2>&1 | grep 'Python 3\.' >/dev/null

@@ -57,7 +57,7 @@ do
     fi
 done
 if [ -z "$PYTHON" ]; then
-    echo "No Python installation found."
+    echo "No suitable Python installation found."
     exit 1
 fi
 

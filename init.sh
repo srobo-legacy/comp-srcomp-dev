@@ -50,7 +50,7 @@ fi
 for POSSIBLE_PYTHON in python2 python python3;
 do
     PYTHON=$(which $POSSIBLE_PYTHON)
-    $POSSIBLE_PYTHONS --version 2>&1 | grep 'Python 3\.' >/dev/null
+    $POSSIBLE_PYTHONS --version 2>&1 | grep 'Python (3\.|2\.7)' >/dev/null
     if [ $? -ne 0 ]; then
         echo "Found Python: $PYTHON"
         break

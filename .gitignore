@@ -35,6 +35,8 @@ nosetests.xml
 .project
 .pydevproject
 dummy-comp
+sr2014-comp
+sr2015-comp
 ranker
 srcomp-http
 srcomp-screens

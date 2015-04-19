@@ -14,4 +14,5 @@ done
 
 echo srcomp-dev
 echo ------------------
-git pull --ff-only
+git reset --hard HEAD
+git checkout master

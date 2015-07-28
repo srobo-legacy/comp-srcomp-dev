@@ -1,7 +1,6 @@
 #!/bin/bash
 if [ -f ~/.ssh/config ]; then
     GERRIT=$(grep -m 1 -B 5 29418 ~/.ssh/config | grep -E '^Host ' | tail -1 | sed 's/Host //')
-    GITHUB=$(grep -m 1 -B 5 'github.com' ~/.ssh/config | grep -E '^Host ' | tail -1 | sed 's/Host //')
 fi
 
 if [ -n "$GERRIT" ]; then
@@ -25,24 +24,6 @@ else
             cd $2
             git config remote.origin.pushURL ssh://studentrobotics.org:29418/$1
             cd -
-        fi
-    }
-fi
-if [ -n "$GITHUB" ]; then
-    echo "Detected GITHUB as $GITHUB"
-    function clone_gh {
-        if [ -d "$2" ]; then
-            echo 'Skipped: already exists.'
-        else
-            git clone --recursive $GITHUB:$1 $2
-        fi
-    }
-else
-    function clone_gh {
-        if [ -d "$2" ]; then
-            echo 'Skipped: already exists.'
-        else
-            git clone --recursive https://github.com/$1 $2
         fi
     }
 fi

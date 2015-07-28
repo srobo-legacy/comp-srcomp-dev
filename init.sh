@@ -82,7 +82,7 @@ clone_srobo comp/srcomp-scorer.git srcomp-scorer
 clone_srobo comp/srcomp-cli.git srcomp-cli
 clone_srobo comp/srcomp-stream.git srcomp-stream
 clone_srobo comp/srcomp-kiosk.git srcomp-kiosk
-clone_srobo comp/srcomp-puppet.git srcomp-puppet.git
+clone_srobo comp/srcomp-puppet.git srcomp-puppet
 cd ranker
     pip install -e .
 cd ..

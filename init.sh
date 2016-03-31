@@ -78,6 +78,7 @@ clone_srobo comp/srcomp-screens.git srcomp-screens
 clone_srobo comp/dummy-comp.git dummy-comp
 clone_srobo comp/sr2014-comp.git sr2014-comp
 clone_srobo comp/sr2015-comp.git sr2015-comp
+clone_srobo comp/sr2016-comp.git sr2016-comp
 clone_srobo comp/srcomp-scorer.git srcomp-scorer
 clone_srobo comp/srcomp-cli.git srcomp-cli
 clone_srobo comp/srcomp-stream.git srcomp-stream

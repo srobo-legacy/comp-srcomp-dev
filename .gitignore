@@ -37,6 +37,7 @@ nosetests.xml
 dummy-comp
 sr2014-comp
 sr2015-comp
+sr2016-comp
 ranker
 srcomp-http
 srcomp-screens

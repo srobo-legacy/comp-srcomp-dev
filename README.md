@@ -24,3 +24,4 @@ screen pages are at:
  * <http://localhost:5112/arena.html>
  * <http://localhost:5112/outside.html>
  * <http://localhost:5112/shepherding.html>
+ * <http://localhost:5112/staging.html>

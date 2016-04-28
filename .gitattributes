@@ -1,0 +1,2 @@
+# Make all shell files use *nix line endings, always.
+*.sh text eol=lf

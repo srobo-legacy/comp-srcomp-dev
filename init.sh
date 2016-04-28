@@ -31,10 +31,12 @@ fi
 for POSSIBLE_PYTHON in python2 python python3;
 do
     PYTHON=$(which $POSSIBLE_PYTHON)
-    $POSSIBLE_PYTHONS --version 2>&1 | grep 'Python (3\.|2\.7)' >/dev/null
-    if [ $? -ne 0 ]; then
+    $PYTHON --version 2>&1 | grep -E 'Python (3\.|2\.7)' >/dev/null
+    if [ $? -eq 0 ]; then
         echo "Found Python: $PYTHON"
         break
+    else
+        PYTHON=
     fi
 done
 if [ -z "$PYTHON" ]; then

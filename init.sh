@@ -9,7 +9,7 @@ if [ -n "$GERRIT" ]; then
         if [ -d "$2" ]; then
             echo 'Skipped: already exists.'
         else
-            git clone --recursive git://studentrobotics.org/$1 $2
+            git clone --recursive git://git.studentrobotics.org/$1 $2
             cd $2
             git config remote.origin.pushURL $GERRIT:$1
             cd -
@@ -20,9 +20,9 @@ else
         if [ -d "$2" ]; then
             echo 'Skipped: already exists.'
         else
-            git clone --recursive git://studentrobotics.org/$1 $2
+            git clone --recursive git://git.studentrobotics.org/$1 $2
             cd $2
-            git config remote.origin.pushURL ssh://studentrobotics.org:29418/$1
+            git config remote.origin.pushURL ssh://git.studentrobotics.org:29418/$1
             cd -
         fi
     }

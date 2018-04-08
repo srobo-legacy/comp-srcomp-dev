@@ -2,12 +2,10 @@ SRcomp Development Script
 =========================
 
 This repository contains a script - `init.sh` - which builds an srcomp
-development environment.
+development environment by:
 
-Specifically, when, run (via `python run.py $COMPSTATE`) it:
-
- * creates a virtualenv and configures it with external dependencies,
- * clones and configures the following repositories:
+ * creating a virtualenv and configures it with external dependencies,
+ * cloning and configuring the following repositories:
    * `ranker`, the game-points-to-league-points system;
    * `srcomp`, the core srcomp library;
    * `srcomp-http`, the srcomp REST API;
@@ -17,6 +15,8 @@ Specifically, when, run (via `python run.py $COMPSTATE`) it:
    * `dummy-comp`, the standard testing compstate repository
 
 It then emits instructions on how to use the virtualenv.
+
+While other compstates can be used, basic usage is: `python run.py dummy-comp`
 
 The HTTP API is exposed via <http://localhost:5112/comp-api/>, while the
 screen pages are at:

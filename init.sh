@@ -81,7 +81,7 @@ cd srcomp-screens
     bower install
 cd ..
 cd srcomp-stream
-    sed 's_SRCOMP: .*_SRCOMP: "http://localhost:5112/comp-api"_' <config.coffee.example >config.coffee
+    sed 's_SRCOMP: .*_SRCOMP: "http://localhost:5112/comp-api"_' <config.local.coffee.example >config.local.coffee
     npm install
 cd ..
 set +v

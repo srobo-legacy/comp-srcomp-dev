@@ -1,32 +1,11 @@
 #!/bin/bash
-if [ -f ~/.ssh/config ]; then
-    GERRIT=$(grep -m 1 -B 5 29418 ~/.ssh/config | grep -E '^Host ' | tail -1 | sed 's/Host //')
-fi
-
-if [ -n "$GERRIT" ]; then
-    echo "Detected GERRIT as $GERRIT"
-    function clone_srobo {
-        if [ -d "$2" ]; then
-            echo 'Skipped: already exists.'
-        else
-            git clone --recursive git://git.studentrobotics.org/$1 $2
-            cd $2
-            git config remote.origin.pushURL $GERRIT:$1
-            cd -
-        fi
-    }
-else
-    function clone_srobo {
-        if [ -d "$2" ]; then
-            echo 'Skipped: already exists.'
-        else
-            git clone --recursive git://git.studentrobotics.org/$1 $2
-            cd $2
-            git config remote.origin.pushURL ssh://git.studentrobotics.org:29418/$1
-            cd -
-        fi
-    }
-fi
+function clone_repo {
+    if [ -d "$1" ]; then
+        echo 'Skipped: already exists.'
+    else
+        git clone --recursive git://github.com/PeterJCLaw/$1
+    fi
+}
 
 for POSSIBLE_PYTHON in python2 python python3;
 do
@@ -73,19 +52,16 @@ fi
 source venv/bin/activate
 set -v
 pip install -r requirements.txt
-clone_srobo comp/ranker.git ranker
-clone_srobo comp/srcomp.git srcomp
-clone_srobo comp/srcomp-http.git srcomp-http
-clone_srobo comp/srcomp-screens.git srcomp-screens
-clone_srobo comp/dummy-comp.git dummy-comp
-clone_srobo comp/sr2014-comp.git sr2014-comp
-clone_srobo comp/sr2015-comp.git sr2015-comp
-clone_srobo comp/sr2016-comp.git sr2016-comp
-clone_srobo comp/srcomp-scorer.git srcomp-scorer
-clone_srobo comp/srcomp-cli.git srcomp-cli
-clone_srobo comp/srcomp-stream.git srcomp-stream
-clone_srobo comp/srcomp-kiosk.git srcomp-kiosk
-clone_srobo comp/srcomp-puppet.git srcomp-puppet
+clone_repo ranker
+clone_repo srcomp
+clone_repo srcomp-http
+clone_repo srcomp-screens
+clone_repo dummy-comp
+clone_repo srcomp-scorer
+clone_repo srcomp-cli
+clone_repo srcomp-stream
+clone_repo srcomp-kiosk
+clone_repo srcomp-puppet
 cd ranker
     pip install -e .
 cd ..

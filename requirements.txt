@@ -23,8 +23,8 @@ pip-tools==3.5.0
 pygments==2.0.2
 pyparsing==2.3.1          # via packaging
 python-dateutil==2.4.0
-pytz==2014.10
-pyyaml==3.11
+pytz==2018.9
+pyyaml==3.13
 reportlab==3.1.44
 requests==2.5.1
 ruamel.base==0.1          # via ruamel.std.argparse, ruamel.yaml

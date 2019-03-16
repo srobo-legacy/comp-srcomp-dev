@@ -3,7 +3,6 @@ CherryPy
 docutils
 Flask
 freezegun
-itsdangerous
 Jinja2
 MarkupSafe
 mock
@@ -15,14 +14,10 @@ pytz
 PyYAML
 reportlab
 requests
-ruamel.base
-ruamel.std.argparse
 ruamel.yaml
 simplejson
 six
-snowballstemmer
 Sphinx
 timelib
-Werkzeug
 
 pip-tools

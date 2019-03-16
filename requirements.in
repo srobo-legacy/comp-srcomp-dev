@@ -11,7 +11,7 @@ Pillow
 Pygments
 python-dateutil
 pytz
-PyYAML
+PyYAML<=4
 reportlab
 requests
 ruamel.yaml

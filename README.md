@@ -25,3 +25,12 @@ screen pages are at:
  * <http://localhost:5112/outside.html>
  * <http://localhost:5112/shepherding.html>
  * <http://localhost:5112/staging.html>
+
+
+Updating dependencies
+---------------------
+
+Dependencies can be updated by using `pip-compile`, though note that care must
+be taken to ensure that the resulting dependencies are compatible with the
+various SRComp projects which this repo configures. This is unfortunately not
+currently checked by running `pip-compile`.
